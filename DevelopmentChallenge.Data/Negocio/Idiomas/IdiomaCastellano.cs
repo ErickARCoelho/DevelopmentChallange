@@ -18,14 +18,14 @@ namespace DevelopmentChallenge.Data.Negocio.Idiomas
             string nombreForma = TraducirForma(tipo, cantidad);
             string areaFormateada = Truncar(area, 2).ToString("F2");
             string perimetroFormateado = Truncar(perimetro, 2).ToString("F2");
-            return $"{cantidad} {nombreForma} | Area {areaFormateada} | Perimetro {perimetroFormateado} <br/>";
+            return $"{cantidad} {nombreForma} | Área {areaFormateada} | Perímetro {perimetroFormateado} <br/>";
         }
 
         public string FormatearPie(int totalFormas, decimal totalPerimetro, decimal totalArea)
         {
             string perimetroFormateado = Truncar(totalPerimetro, 2).ToString("F2");
             string areaFormateada = Truncar(totalArea, 2).ToString("F2");
-            return $"TOTAL:<br/>{totalFormas} formas Perimetro {perimetroFormateado} Area {areaFormateada}";
+            return $"TOTAL:<br/>{totalFormas} formas Perímetro {perimetroFormateado} Área {areaFormateada}";
         }
 
         public string TraducirForma(string tipo, int cantidad)

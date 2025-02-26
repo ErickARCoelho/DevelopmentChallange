@@ -42,7 +42,7 @@ namespace DevelopmentChallenge.Data.Tests
             };
 
             string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Castellano);
-            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Area 25,00 | Perimetro 20,00 <br/>TOTAL:<br/>1 formas Perimetro 20,00 Area 25,00", resultado);
+            Assert.AreEqual("<h1>Reporte de Formas</h1>1 Cuadrado | Área 25,00 | Perímetro 20,00 <br/>TOTAL:<br/>1 formas Perímetro 20,00 Área 25,00", resultado);
         }
 
         [Test]
@@ -99,14 +99,40 @@ namespace DevelopmentChallenge.Data.Tests
                 FormaGeometrica.CrearForma(FormaGeometrica.TrianguloEquilatero, 4.2m)
             };
 
-            string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Ingles);
-            string esperado = "<h1>Shapes report</h1>" +
-                  "2 Squares | Area 29,00 | Perimeter 28,00 <br/>" +
-                  "2 Circles | Area 12,99 | Perimeter 18,05 <br/>" +
-                  "3 Triangles | Area 49,62 | Perimeter 51,60 <br/>" +
-                  "TOTAL:<br/>7 shapes Perimeter 97,65 Area 91,61";
+            string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Castellano);
+            string esperado = "<h1>Reporte de Formas</h1>" +
+                  "2 Cuadrados | Área 29,00 | Perímetro 28,00 <br/>" +
+                  "2 Círculos | Área 12,99 | Perímetro 18,05 <br/>" +
+                  "3 Triángulos | Área 49,62 | Perímetro 51,60 <br/>" +
+                  "TOTAL:<br/>7 formas Perímetro 97,65 Área 91,61";
+
             Assert.AreEqual(esperado, resultado);
         }
+
+        [Test]
+        public void TestResumenConMasTipos_Italiano()
+        {
+            List<Forma> formas = new List<Forma>
+            {
+                FormaGeometrica.CrearForma(FormaGeometrica.Cuadrado, 5),
+                FormaGeometrica.CrearForma(FormaGeometrica.Circulo, 3),
+                FormaGeometrica.CrearForma(FormaGeometrica.TrianguloEquilatero, 4),
+                FormaGeometrica.CrearForma(FormaGeometrica.Cuadrado, 2),
+                FormaGeometrica.CrearForma(FormaGeometrica.TrianguloEquilatero, 9),
+                FormaGeometrica.CrearForma(FormaGeometrica.Circulo, 2.75m),
+                FormaGeometrica.CrearForma(FormaGeometrica.TrianguloEquilatero, 4.2m)
+            };
+
+            string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Italiano);
+            string esperado = "<h1>Rapporto di forme</h1>" +
+                  "2 Quadrati | Area 29,00 | Perimetro 28,00 <br/>" +
+                  "2 Cerchi | Area 12,99 | Perimetro 18,05 <br/>" +
+                  "3 Triangoli | Area 49,62 | Perimetro 51,60 <br/>" +
+                  "TOTALE:<br/>7 forme Perimetro 97,65 Area 91,61";
+
+            Assert.AreEqual(esperado, resultado);
+        }
+
 
         [Test]
         public void TestTrapecio_Calculos()
@@ -155,12 +181,12 @@ namespace DevelopmentChallenge.Data.Tests
 
             string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Castellano);
             string esperado = "<h1>Reporte de Formas</h1>" +
-                  "1 Cuadrado | Area 10,56 | Perimetro 13,00 <br/>" +
-                  "1 Círculo | Area 15,90 | Perimetro 14,13 <br/>" +
-                  "1 Triángulo | Area 3,27 | Perimetro 8,25 <br/>" +
-                  "1 Rectangulo | Area 13,86 | Perimetro 15,00 <br/>" +
-                  "1 Trapecio | Area 20,11 | Perimetro 20,15 <br/>" +
-                  "TOTAL:<br/>5 formas Perimetro 70,53 Area 63,70";
+                  "1 Cuadrado | Área 10,56 | Perímetro 13,00 <br/>" +
+                  "1 Círculo | Área 15,90 | Perímetro 14,13 <br/>" +
+                  "1 Triángulo | Área 3,27 | Perímetro 8,25 <br/>" +
+                  "1 Rectangulo | Área 13,86 | Perímetro 15,00 <br/>" +
+                  "1 Trapecio | Área 20,11 | Perímetro 20,15 <br/>" +
+                  "TOTAL:<br/>5 formas Perímetro 70,53 Área 63,70";
 
             Assert.That(resultado, Is.EqualTo(esperado));
         }
