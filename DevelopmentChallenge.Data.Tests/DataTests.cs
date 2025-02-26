@@ -63,6 +63,25 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [Test]
+        public void TestResumenConMasCuadrados_Italiano()
+        {
+            List<Forma> formas = new List<Forma>
+            {
+                FormaGeometrica.CrearForma(FormaGeometrica.Cuadrado, 5),
+                FormaGeometrica.CrearForma(FormaGeometrica.Cuadrado, 1),
+                FormaGeometrica.CrearForma(FormaGeometrica.Cuadrado, 3)
+            };
+
+            string esperado = "<h1>Rapporto di forme</h1>" +
+                  "3 Quadrati | Area 35,00 | Perimetro 36,00 <br/>" +
+                  "TOTALE:<br/>3 forme Perimetro 36,00 Area 35,00";
+
+            string resultado = FormaGeometrica.Imprimir(formas, FormaGeometrica.Italiano);
+            Assert.AreEqual(esperado, resultado);
+        }
+
+
+        [Test]
         public void TestResumenConMasTipos_Ingles()
         {
             List<Forma> formas = new List<Forma>
